@@ -1,1 +1,1 @@
-Your site is live at https://arafatthemaster.github.io/biddabari/
+Your site is live at https://arafatthemaster.github.io/biddabari.com/
