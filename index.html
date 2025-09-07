@@ -1,1570 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>11-20th Grade Gold Live</title>
-  <style>
-    body {
+     	<!--To serve the static page with traditional--> 
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>
+	    Arafat : All Resources & Tools
+    </title>
+
+	<!--To serve the static page with traditional--> 
+	<meta name = "keywords" content = "HTML, Meta Tags, Metadata" />
+	<meta name = "description" content = "Learning about Meta Tags." />
+	<meta name = "author" content = "MD ARAFAT" />
+	<meta http-equiv = "Content-Type" content = "text/html; charset = Big5" />
+
+    <script type="text/JavaScript">
+        // =========FOR Copy , DISABLE F12 & Inspect===========================
+			// Courtesy OF MD ARAFAT
+			function killCopy(e){
+			return false
+			}
+			function reEnable(){
+			return true
+			}
+			document.onselectstart=new Function ("return false")
+			if (window.sidebar){
+			document.onmousedown=killCopy
+			document.onclick=reEnable
+			}
+    // =========FOR Copy , DISABLE F12 & Inspect===========================
+	</script>
+      <title>Login Form</title>
+      <style>
+    /* Your CSS styles */
+    /* ... */
+    #loggedInSection {
+      background-color: #273c75;
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 40px;
+      display: none; /* Hide initially */
     }
 
-    h1 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 30px;
-    }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+      </style>
+      
+	<!----=To serve the StyleSheet CODE--> 
+	<link rel="stylesheet" type="text/css" href="main.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+	<link rel="shortcut icon" type="image/x-icon" href="css/img/favicon.png">
+	
 
-    .accordion {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .accordion-item {
-      background: white;
-      border: 1px solid #ddd;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .accordion-title {
-      background: #008778;
-      color: #ffffff;
-      font-size: 18px;
-      padding: 20px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s ease;
-    }
-
-    .accordion-title:hover {
-      background: #007666;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-      padding: 0 20px;
-      background: #f0fefc;
-    }
-
-    .accordion-content ul {
-      padding-left: 0;
-      margin: 15px 0;
-      list-style: none;
-    }
-
-    .accordion-content li {
-      margin-bottom: 10px;
-    }
-
-    .video-button.disabled {
-      pointer-events: none;
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .video-button {
-      background-color: #ffffff;
-      padding: 12px 20px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-      font-weight: bold;
-      color: #008778;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .accordion-content li:nth-child(even) .video-button {
-      background-color: #fff5d8;
-    }
-
-    .video-button:hover {
-      background-color: #d6f5ef;
-      transform: scale(1.01);
-    }
-
-    .accordion-title::after {
-      content: '+';
-      font-size: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .accordion-item.active .accordion-title::after {
-      content: '-';
-      transform: rotate(180deg);
-    }
-
-    /* Inner lecture layout */
-    .lecture-label { flex-grow: 1; text-align: left; }
-    .lecture-actions { display: flex; gap: 6px; }
-    .exam-btn, .sheet-btn {
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: bold;
-      text-decoration: none;
-      border: 1px solid #ccc;
-    }
-    .exam-btn { background:#fff3cd; color:#856404; }
-    .sheet-btn { background:#e6f7ff; color:#005f8a; }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.4s ease forwards;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 10px;
-      max-width: 800px;
-      width: 90%;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .modal-content iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: red;
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+  	<!-- Jquery Needed for F12 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9"></script> <!-- SweetAlert2 library -->
 </head>
-<body oncontextmenu="return false">
+<body>
+  <section id="backgroundSection">
+    <div class="login-box">
+      <form id="loginForm" onsubmit="validateForm(event)">
+        <h2>Login</h2>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="mail-outline"></ion-icon>
+          </span>
+          <input type="text" id="username" name="username" required>
+          <label>Email</label>
+        </div>
 
-<h1>11-20th Grade Gold Live</h1>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+          </span>
+          <input type="password" id="password" name="password" required>
+          <label>Password</label>
+        </div>
 
-<div class="accordion">
-  <!-- Orientation Class -->
-  <div class="accordion-item">
-    <div class="accordion-title">Orientation Live Class</div>
-    <div class="accordion-content">
-      <ul>
-        <li>
-          <div class="video-button" onclick="openModal('LdJvzS0nGyY')">
-            <span class="lecture-label">🎥 Orientation Class</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
+        <div class="remember-forgot">
+          <label>
+            <input type="checkbox" id="showPasswordCheckbox" onchange="togglePasswordVisibility()">
+            Show Password
+          </label>
+          <a href="forgot-password/index.html" target="_blank">Forgot Password?</a>
+        </div>
 
-     
-     
-     
-      </ul>
+        <button type="submit"><b>Login</b></button>
+
+        <div class="register-link">
+          <p>Don't have an account? 
+            <a href="create-account/index.html" target="_blank">Register</a>
+          </p>
+        </div>
+      </form>
     </div>
+  </section>
+
+  <div id="loggedInSection">
+<!-- ============================================================================================================ -->
+<!-- ============================================================================================================ -->
+
+
+  
+<!-- ============================================================================================================ -->
+<!-- ============================================================================================================ -->
   </div>
 
-  <!-- Bangla -->
-  <div class="accordion-item">
-    <div class="accordion-title">Bangla Preli</div>
-    <div class="accordion-content">
-      <ul>
-       
-        <!-- Lecture 01 -->
-        <li>
-          <div class="video-button" onclick="openModal('H8QQ2hjkwzY')">
-            <span class="lecture-label">🎥 Lecture 01</span>
-            <span class="lecture-actions">
-              <a href="#" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://pdfhost.io/v/pxprq3ccUn_Lecture_Sheet_--_1" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        
-        <!-- Lecture 02 -->
-        <li>
-          <div class="video-button" onclick="openModal('KQ8pfrSbyXU')">
-            <span class="lecture-label">🎥 Lecture 02</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 03 -->
-        <li>
-          <div class="video-button" onclick="openModal('VjZP3KGsOQI')">
-            <span class="lecture-label">🎥 Lecture 03</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 04 -->
-        <li>
-          <div class="video-button" onclick="openModal('XM3dQ5vKAIw')">
-            <span class="lecture-label">🎥 Lecture 04</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 05 -->
-        <li>
-          <div class="video-button" onclick="openModal('pEDCDywKAAs')">
-            <span class="lecture-label">🎥 Lecture 05</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 06 -->
-        <li>
-          <div class="video-button" onclick="openModal('v9jyh5wHevg')">
-            <span class="lecture-label">🎥 Lecture 06</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 07 -->
-        <li>
-          <div class="video-button" onclick="openModal('gx9RamuryVI')">
-            <span class="lecture-label">🎥 Lecture 07</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        
-        
-        
-        
-      </ul>
-    </div>
-  </div>
-
-  <!-- English -->
-  <div class="accordion-item">
-    <div class="accordion-title">English Preli</div>
-    <div class="accordion-content">
-      <ul>
-       
-        <!-- Lecture 01 -->
-        <li>
-          <div class="video-button" onclick="openModal('0bFlenQmhu0')">
-            <span class="lecture-label">🎥 Lecture 01</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 02 -->
-        <li>
-          <div class="video-button" onclick="openModal('AYWN4xseTy4')">
-            <span class="lecture-label">🎥 Lecture 02</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 03 -->
-        <li>
-          <div class="video-button" onclick="openModal('gFZpBc27NJo')">
-            <span class="lecture-label">🎥 Lecture 03</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 04 -->
-        <li>
-          <div class="video-button" onclick="openModal('Xv7cCY01tOw')">
-            <span class="lecture-label">🎥 Lecture 04</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 05 -->
-        <li>
-          <div class="video-button" onclick="openModal('pcyOPfSr94Y')">
-            <span class="lecture-label">🎥 Lecture 05</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        
-        
-      </ul>
-    </div>
-  </div>
-  
-  
-
-
-
-  <!-- Math -->
-  <div class="accordion-item">
-    <div class="accordion-title">Mathematics Preli</div>
-    <div class="accordion-content">
-      <ul>
-       
-        <!-- Lecture 01 -->
-        <li>
-          <div class="video-button" onclick="openModal('2tBuPRx3ZzY')">
-            <span class="lecture-label">🎥 Lecture 01</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 02 -->
-        <li>
-          <div class="video-button" onclick="openModal('MEyfiKSX72I')">
-            <span class="lecture-label">🎥 Lecture 02</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 03 -->
-        <li>
-          <div class="video-button" onclick="openModal('Buturtq6kts')">
-            <span class="lecture-label">🎥 Lecture 03</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 04 -->
-        <li>
-          <div class="video-button" onclick="openModal('9J6GNyniJpk')">
-            <span class="lecture-label">🎥 Lecture 04</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 05 -->
-        <li>
-          <div class="video-button" onclick="openModal('z2NZmPkCQvc')">
-            <span class="lecture-label">🎥 Lecture 05</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 06 -->
-        <li>
-          <div class="video-button" onclick="openModal('IurZiY6HmUU')">
-            <span class="lecture-label">🎥 Lecture 06</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 07 -->
-        <li>
-          <div class="video-button" onclick="openModal('2iexCt3zUrk')">
-            <span class="lecture-label">🎥 Lecture 07</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        <!-- Lecture 08 -->
-        <li>
-          <div class="video-button" onclick="openModal('bpo1tiKxNMY')">
-            <span class="lecture-label">🎥 Lecture 08</span>
-            <span class="lecture-actions">
-              <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-              <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-            </span>
-          </div>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      </ul>
-    </div>
-  </div>
-  
-  
-  
-  
- </div> 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-        <h1>𝐖𝐫𝐢𝐭𝐭𝐞𝐧 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
-        <div class="accordion">
-
-
-
-
-          <!-- Bangla -->
-          <div class="accordion-item">
-            <div class="accordion-title">Bangla Written</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('cq0Mz9oCzrw')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-bn1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-bn1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-
-
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('9n_YO0eZ4qQ')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button  disabled" onclick="openModal('9n_YO0eZ4qQ')">
-                    <span class="lecture-label">🎥 Coming Soon...</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-
-
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-
-          <!-- English -->
-          <div class="accordion-item">
-            <div class="accordion-title">English Written</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('icMCS3iRSrY')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button  disabled" onclick="openModal('9n_YO0eZ4qQ')">
-                    <span class="lecture-label">🎥 Coming Soon...</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-
-
-
-
-
-          <!-- Mathematics -->
-          <div class="accordion-item">
-            <div class="accordion-title">Mathematics Written</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('sBj1FWNTk9c')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button  disabled" onclick="openModal('9n_YO0eZ4qQ')">
-                    <span class="lecture-label">🎥 Coming Soon...</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-bn2" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-bn2.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-
-
-
-
-         </div>
-         
-          
-           
-            
-             
-              
-               
-                
-                  
-        <h1>𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐑𝐞𝐜𝐨𝐫𝐝𝐞𝐝 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
-        <div class="accordion">
-
-
-
-
-          <!-- Bangla -->
-          <div class="accordion-item">
-            <div class="accordion-title">Bangla</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('H3vlS6pEDwA')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-bn1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-bn1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('UMh-ZlS4N80')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 03 -->
-                <li>
-                  <div class="video-button" onclick="openModal('M88e2YHmYHE')">
-                    <span class="lecture-label">🎥 Lecture 03</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 04 -->
-                <li>
-                  <div class="video-button" onclick="openModal('WQeOakPMs6U')">
-                    <span class="lecture-label">🎥 Lecture 04</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 05 -->
-                <li>
-                  <div class="video-button" onclick="openModal('S4ZH8Yw8pWQ')">
-                    <span class="lecture-label">🎥 Lecture 05</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 06 -->
-                <li>
-                  <div class="video-button" onclick="openModal('kcF77GljqfU')">
-                    <span class="lecture-label">🎥 Lecture 06</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 07 -->
-                <li>
-                  <div class="video-button" onclick="openModal('2PlSzoQx9So')">
-                    <span class="lecture-label">🎥 Lecture 07</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 08 -->
-                <li>
-                  <div class="video-button" onclick="openModal('rS73lzvUdZ0')">
-                    <span class="lecture-label">🎥 Lecture 08</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 09 -->
-                <li>
-                  <div class="video-button" onclick="openModal('tzJ5-fWJ4hc')">
-                    <span class="lecture-label">🎥 Lecture 09</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 10 -->
-                <li>
-                  <div class="video-button" onclick="openModal('3cBjiqGTGIU')">
-                    <span class="lecture-label">🎥 Lecture 10</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 11 -->
-                <li>
-                  <div class="video-button" onclick="openModal('1XN-581K27g')">
-                    <span class="lecture-label">🎥 Lecture 11</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 12 -->
-                <li>
-                  <div class="video-button" onclick="openModal('g3-9KfGKqxQ')">
-                    <span class="lecture-label">🎥 Lecture 12</span>
-                    <span class="lecture-actions">
-                      <a href="https://example.com/exam-en1" target="_blank" class="exam-btn">Exam</a>
-                      <a href="https://example.com/sheet-en1.pdf" target="_blank" class="sheet-btn">Sheet</a>
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-
-
-
-              </ul>
-            </div>
-          </div>
-          
-          
-          
-          
-           
-
-          <!-- English -->
-          <div class="accordion-item">
-            <div class="accordion-title">English</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('nECGaHDv1gs')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('c75uR1v3tA0')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 03 -->
-                <li>
-                  <div class="video-button" onclick="openModal('LITWuzD5YOc')">
-                    <span class="lecture-label">🎥 Lecture 03</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 04 -->
-                <li>
-                  <div class="video-button" onclick="openModal('VgynfiqNeGU')">
-                    <span class="lecture-label">🎥 Lecture 04</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 05 -->
-                <li>
-                  <div class="video-button" onclick="openModal('I3oaUsHxyz0')">
-                    <span class="lecture-label">🎥 Lecture 05</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 06 -->
-                <li>
-                  <div class="video-button" onclick="openModal('OgXhO9Q7YLY')">
-                    <span class="lecture-label">🎥 Lecture 06</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 07 -->
-                <li>
-                  <div class="video-button" onclick="openModal('H026YSuDG58')">
-                    <span class="lecture-label">🎥 Lecture 07</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 08 -->
-                <li>
-                  <div class="video-button" onclick="openModal('rUcsJ51JqbA')">
-                    <span class="lecture-label">🎥 Lecture 08</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 09 -->
-                <li>
-                  <div class="video-button" onclick="openModal('WECt3627kVk')">
-                    <span class="lecture-label">🎥 Lecture 09</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 10 -->
-                <li>
-                  <div class="video-button" onclick="openModal('lZ3oFZRb44c')">
-                    <span class="lecture-label">🎥 Lecture 10</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 11 -->
-                <li>
-                  <div class="video-button" onclick="openModal('vy2j3UBT6qQ')">
-                    <span class="lecture-label">🎥 Lecture 11</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 12 -->
-                <li>
-                  <div class="video-button" onclick="openModal('yHfhgl_SAcs')">
-                    <span class="lecture-label">🎥 Lecture 12</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 13 -->
-                <li>
-                  <div class="video-button" onclick="openModal('t15rpUbM47k')">
-                    <span class="lecture-label">🎥 Lecture 13</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 14 -->
-                <li>
-                  <div class="video-button" onclick="openModal('pIwJxEt7_xg')">
-                    <span class="lecture-label">🎥 Lecture 14</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 15 -->
-                <li>
-                  <div class="video-button" onclick="openModal('Hbv-X6Lz1FE')">
-                    <span class="lecture-label">🎥 Lecture 15</span>
-                    <span class="lecture-actions">
-
-                    </span>
-                  </div>
-                </li>
-
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-
-
-
-
-
-          <!-- Mathematics -->
-          <div class="accordion-item">
-            <div class="accordion-title">Mathematics</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('OZlAu-jndFc')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('NKp8MI10HNA')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 03 -->
-                <li>
-                  <div class="video-button" onclick="openModal('pPn6-LrPLCM')">
-                    <span class="lecture-label">🎥 Lecture 03</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 04 -->
-                <li>
-                  <div class="video-button" onclick="openModal('Ecw-8VYDRXw')">
-                    <span class="lecture-label">🎥 Lecture 04</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 05 -->
-                <li>
-                  <div class="video-button" onclick="openModal('vGGjgizbIFo')">
-                    <span class="lecture-label">🎥 Lecture 05</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 06 -->
-                <li>
-                  <div class="video-button" onclick="openModal('-xbvd8nEM8o')">
-                    <span class="lecture-label">🎥 Lecture 06</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 07 -->
-                <li>
-                  <div class="video-button" onclick="openModal('g8IbwkFrPMA')">
-                    <span class="lecture-label">🎥 Lecture 07</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 08 -->
-                <li>
-                  <div class="video-button" onclick="openModal('tqN7DbkTJJY')">
-                    <span class="lecture-label">🎥 Lecture 08</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 09 -->
-                <li>
-                  <div class="video-button" onclick="openModal('4wM4VEX2QEE')">
-                    <span class="lecture-label">🎥 Lecture 09</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 10 -->
-                <li>
-                  <div class="video-button" onclick="openModal('G3R2oLB-XIw')">
-                    <span class="lecture-label">🎥 Lecture 10</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 11 -->
-                <li>
-                  <div class="video-button" onclick="openModal('oj1TPJ242vI')">
-                    <span class="lecture-label">🎥 Lecture 11</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 12 -->
-                <li>
-                  <div class="video-button" onclick="openModal('dAh8F77h060')">
-                    <span class="lecture-label">🎥 Lecture 12</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 13 -->
-                <li>
-                  <div class="video-button" onclick="openModal('yz1S0wIp7Dg')">
-                    <span class="lecture-label">🎥 Lecture 13</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 14 -->
-                <li>
-                  <div class="video-button" onclick="openModal('liwU9caYONM')">
-                    <span class="lecture-label">🎥 Lecture 14</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 15 -->
-                <li>
-                  <div class="video-button" onclick="openModal('AtmdWavdp2o')">
-                    <span class="lecture-label">🎥 Lecture 15</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 16 -->
-                <li>
-                  <div class="video-button" onclick="openModal('M9cujdxrljg')">
-                    <span class="lecture-label">🎥 Lecture 16</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 17 -->
-                <li>
-                  <div class="video-button" onclick="openModal('_4AWDGr6bOc')">
-                    <span class="lecture-label">🎥 Lecture 17</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 18 -->
-                <li>
-                  <div class="video-button" onclick="openModal('m6Gp1YOcdjs')">
-                    <span class="lecture-label">🎥 Lecture 18</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-
-
-
-
-              </ul>
-            </div>
-          </div>
-
-
-
-
-          <!-- Bangladesh Affairs -->
-          <div class="accordion-item">
-            <div class="accordion-title">Bangladesh Affairs</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('ia9kKvcJ0Lc')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('XdsKhYC_K2A')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 03 -->
-                <li>
-                  <div class="video-button" onclick="openModal('QJnUJx0WIcg')">
-                    <span class="lecture-label">🎥 Lecture 03</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 04 -->
-                <li>
-                  <div class="video-button" onclick="openModal('KXBNyToAfeE')">
-                    <span class="lecture-label">🎥 Lecture 04</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 05 -->
-                <li>
-                  <div class="video-button" onclick="openModal('YQgxtrExsUI')">
-                    <span class="lecture-label">🎥 Lecture 05</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                
-
-
-
-              </ul>
-            </div>
-          </div>
-          
-          
-          
-          
-          
-          
-          
-          <!-- International Affairs -->
-          <div class="accordion-item">
-            <div class="accordion-title">International Affairs</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('G1XfYmZ0k1Y')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('GcusMtfzUrM')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                <!-- Lecture 03 -->
-                <li>
-                  <div class="video-button" onclick="openModal('lM4yXXbzmTk')">
-                    <span class="lecture-label">🎥 Lecture 03</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 04 -->
-                <li>
-                  <div class="video-button" onclick="openModal('i-ZwpS4fqU8')">
-                    <span class="lecture-label">🎥 Lecture 04</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-
-                
-
-
-
-              </ul>
-            </div>
-          </div>
-          
-          
-          
-          
-          
-          <!-- Daily Science -->
-          <div class="accordion-item">
-            <div class="accordion-title">Daily Science</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('l0IAftLddYs')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('U52hSx6ztOU')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 03 -->
-                <li>
-                  <div class="video-button" onclick="openModal('Rrqk0Cf5SuQ')">
-                    <span class="lecture-label">🎥 Lecture 03</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                
-
-
-
-              </ul>
-            </div>
-          </div>
-          
-          
-          
-          
-          
-          
-          
-          <!-- ICT : Information and Communication Technology -->
-          <div class="accordion-item">
-            <div class="accordion-title">ICT : Information and Communication Technology</div>
-            <div class="accordion-content">
-              <ul>
-
-                <!-- Lecture 01 -->
-                <li>
-                  <div class="video-button" onclick="openModal('aCJ_CH2mzxQ')">
-                    <span class="lecture-label">🎥 Lecture 01</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                <!-- Lecture 02 -->
-                <li>
-                  <div class="video-button" onclick="openModal('tS09z6Ha4S4')">
-                    <span class="lecture-label">🎥 Lecture 02</span>
-                    <span class="lecture-actions">
-                      
-                      
-                    </span>
-                  </div>
-                </li>
-                
-                
-                
-                
-
-
-
-              </ul>
-            </div>
-          </div>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-
-
-         </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-<!-- Modal -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal()">X</button>
-    <div id="videoContainer"></div>
-  </div>
-</div>
-
-<script>
-  const items = document.querySelectorAll('.accordion-item');
-
-  items.forEach(item => {
-    const title = item.querySelector('.accordion-title');
-    const content = item.querySelector('.accordion-content');
-
-    title.addEventListener('click', () => {
-      items.forEach(i => {
-        if (i !== item) {
-          i.classList.remove('active');
-          i.querySelector('.accordion-content').style.maxHeight = null;
-        }
+  <script>
+    function displaySuccessPopup() {
+      Swal.fire({
+        title: "UNLOCKED",
+        text: "Premium Subscription is active!",
+        icon: "success",
+        confirmButtonText: "Premium Service"
+      }).then(function () {
+        // ✅ Login success → redirect to another page (added line)
+        window.location.href = "another-page/index.html";
+
+        // Show the logged-in section after the alert is closed
+        document.getElementById('loggedInSection').style.display = 'block';
+
+        // Hide the login form and background section
+        document.querySelector('.login-box').style.display = 'none';
+        document.getElementById('backgroundSection').style.display = 'none';
+
+        // Hide the section after 1 minute
+        setTimeout(function () {
+          document.getElementById('loggedInSection').style.display = 'none';
+          document.querySelector('.login-box').style.display = 'block';
+          document.getElementById('backgroundSection').style.display = 'flex'; // Show background section again
+        }, 3600000); // 1 minute (60 seconds * 1000 milliseconds)
+
+        // Reload the page after 1 minute and 1 seconds (61,000 milliseconds)
+        setTimeout(function () {
+          location.reload();
+        }, 3601000); // 1 minute (60 seconds) + 1 seconds
       });
-
-      item.classList.toggle('active');
-
-      if (item.classList.contains('active')) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } else {
-        content.style.maxHeight = null;
-      }
-    });
-  });
-
-  function openModal(videoId) {
-    const iframe = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allowfullscreen></iframe>`;
-    document.getElementById('videoContainer').innerHTML = iframe;
-    document.getElementById('modal').style.display = 'flex';
-  }
-
-  function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('videoContainer').innerHTML = '';
-  }
-
-  // Disable Inspect Shortcut
-  document.onkeydown = function(e) {
-    if (
-      e.key === "F12" || 
-      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) || 
-      (e.ctrlKey && e.key === "U")
-    ) {
-      return false;
     }
-  };
-</script>
 
+
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("password");
+      var checkbox = document.getElementById("showPasswordCheckbox");
+
+      if (checkbox.checked) {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+
+    function validateForm(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Define the valid username and password combinations
+      var validCredentials = [
+        { username: "admin", password: "111" },
+        { username: "user1", password: "111" },
+        { username: "user2", password: "222" },
+        { username: "roksanatithi ", password: "ruki@2025" },
+        { username: "Sakib42", password: "Hayabusa1300@" },
+        // Add more combinations here...
+      ];
+
+      var isUsernameValid = false;
+      var isPasswordValid = false;
+
+      // Check if the entered credentials match any valid combination
+      for (var i = 0; i < validCredentials.length; i++) {
+        var validUsername = validCredentials[i].username;
+        var validPassword = validCredentials[i].password;
+
+        if (username === validUsername && password === validPassword) {
+          displaySuccessPopup();
+          
+          // Show the logged-in section after successful login
+          document.getElementById('loggedInSection').style.display = 'block';
+          return;
+        }
+
+        if (username === validUsername) {
+          isUsernameValid = true;
+        }
+
+        if (password === validPassword) {
+          isPasswordValid = true;
+        }
+      }
+
+      if (!isUsernameValid && !isPasswordValid) {
+        Swal.fire({
+          title: "You don't have an account on our website!",
+          text: "The email address or mobile number you entered isn't connected to an account.",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      } else if (!isUsernameValid) {
+        Swal.fire({
+          title: "Invalid Username",
+          text: "The username that you've entered is incorrect.",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      } else {
+        Swal.fire({
+          title: "Invalid Password",
+          text: "The password that you've entered is incorrect.",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      }
+    }
+      
+      
+    // =========FOR Copy , DISABLE F12 & Inspect===========================
+      
+	// Courtesy OF MD ARAFAT
+	window.oncontextmenu = function () {
+				return false;
+			}
+			$(document).keydown(function (event) {
+				if (event.keyCode == 123) {
+					return false;
+				}
+				else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+					return false;
+				}
+			});
+    // =========FOR Copy , DISABLE F12 & Inspect===========================
+      
+      
+  </script>
 </body>
 </html>
