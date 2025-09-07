@@ -1,498 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>11-20th Grade Gold Live</title>
-  <style>
-    body {
+     	<!--To serve the static page with traditional--> 
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>
+	    Arafat : All Resources & Tools
+    </title>
+
+	<!--To serve the static page with traditional--> 
+	<meta name = "keywords" content = "HTML, Meta Tags, Metadata" />
+	<meta name = "description" content = "Learning about Meta Tags." />
+	<meta name = "author" content = "MD ARAFAT" />
+	<meta http-equiv = "Content-Type" content = "text/html; charset = Big5" />
+
+    <script type="text/JavaScript">
+        // =========FOR Copy , DISABLE F12 & Inspect===========================
+			// Courtesy OF MD ARAFAT
+			function killCopy(e){
+			return false
+			}
+			function reEnable(){
+			return true
+			}
+			document.onselectstart=new Function ("return false")
+			if (window.sidebar){
+			document.onmousedown=killCopy
+			document.onclick=reEnable
+			}
+    // =========FOR Copy , DISABLE F12 & Inspect===========================
+	</script>
+      <title>Login Form</title>
+      <style>
+    /* Your CSS styles */
+    /* ... */
+    #loggedInSection {
+      background-color: #273c75;
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 40px;
+      display: none; /* Hide initially */
     }
 
-    h1 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 30px;
-    }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+      </style>
+      
+	<!----=To serve the StyleSheet CODE--> 
+	<link rel="stylesheet" type="text/css" href="main.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+	<link rel="shortcut icon" type="image/x-icon" href="css/img/favicon.png">
+	
 
-    .accordion {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .accordion-item {
-      background: white;
-      border: 1px solid #ddd;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .accordion-title {
-      background: #008778;
-      color: #ffffff;
-      font-size: 18px;
-      padding: 20px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s ease;
-    }
-
-    .accordion-title:hover {
-      background: #007666;
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-      padding: 0 20px;
-      background: #f0fefc;
-    }
-
-    .accordion-content ul {
-      padding-left: 0;
-      margin: 15px 0;
-      list-style: none;
-    }
-
-    .accordion-content li {
-      margin-bottom: 10px;
-    }
-    .video-button.disabled {
-      pointer-events: none;
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    .video-button {
-      background-color: #ffffff;
-      padding: 12px 20px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-      font-weight: bold;
-      color: #008778;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .accordion-content li:nth-child(even) .video-button {
-      background-color: #fff5d8;
-    }
-
-    .video-button:hover {
-      background-color: #d6f5ef;
-      transform: scale(1.01);
-    }
-
-    .accordion-item.active .accordion-content {
-      /* handled dynamically */
-    }
-
-    .accordion-title::after {
-      content: '+';
-      font-size: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .accordion-item.active .accordion-title::after {
-      content: '-';
-      transform: rotate(180deg);
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.4s ease forwards;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 10px;
-      max-width: 800px;
-      width: 90%;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .modal-content iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      background: red;
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+  	<!-- Jquery Needed for F12 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9"></script> <!-- SweetAlert2 library -->
 </head>
-<body oncontextmenu="return false">
-
-<h1>11-20th Grade Gold Live</h1>
-
-<div class="accordion">
-  <!-- Orientation Class -->
-  <div class="accordion-item">
-    <div class="accordion-title">Orientation Live Class</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('LdJvzS0nGyY')">🎥 Lecture 01</div></li>
-        <li><div class="video-button  disabled" onclick="openModal('LdJvzS0nGyY')">🎥 Coming Soon...</div></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Bangla -->
-  <div class="accordion-item">
-    <div class="accordion-title">Bangla Recorded Live Class & PDF</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('H8QQ2hjkwzY')">🎥 Lecture 01</div></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- English -->
-  <div class="accordion-item">
-    <div class="accordion-title">English Recorded Live Class & PDF</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('0bFlenQmhu0')">🎥 Lecture 01</div></li>
-      </ul>
-    </div>
-  </div>
-
-
-  
-  <!-- Math -->
-  <div class="accordion-item">
-    <div class="accordion-title">Math Recorded Live Class & PDF</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('2tBuPRx3ZzY')">🎥 Lecture 01</div></li>
-      </ul>
-    </div>
-  </div>
-
-
-    <!-- GK -->
-  <div class="accordion-item">
-    <div class="accordion-title">General Knowledge Recorded Live Class & PDF</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('iImMZP-GveM')">🎥 Lecture 01</div></li>
-      </ul>
-    </div>
-  </div>
-
-
-
-
-
-  
-  <h1>𝐖𝐫𝐢𝐭𝐭𝐞𝐧 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
-
-  <!-- Bangla Written Recorded Live Class & PDF -->
-  <div class="accordion-item">
-    <div class="accordion-title">Bangla Written Recorded Live Class & PDF</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('cq0Mz9oCzrw')">🎥 Lecture 01</div></li>
-        <li><div class="video-button" onclick="openModal('9n_YO0eZ4qQ')">🎥 Lecture 02</div></li>
-      </ul>
-    </div>
-  </div>
-
-  
-  <!-- English Written Recorded Live Class & PDF -->
-  <div class="accordion-item">
-    <div class="accordion-title">English Written Recorded Live Class & PDF</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('icMCS3iRSrY')">🎥 Lecture 01</div></li>
-      </ul>
-    </div>
-  </div>
-  
-  <!-- Math Written Recorded Live Class -->
-  <div class="accordion-item">
-    <div class="accordion-title">Math Written Recorded Live Class</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('sBj1FWNTk9c')">🎥 Lecture 01</div></li>
-      </ul>
-    </div>
-  </div>
-  
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-<h1>𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐑𝐞𝐜𝐨𝐫𝐝𝐞𝐝 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
-
-<div class="accordion">
-    
-    
-      <!-- Subject Based Preparatory Class -->
-  <div class="accordion-item">
-    <div class="accordion-title">Subject Based Preparatory Class</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('QJnUJx0WIcg')">🎥 General Knowledge [Lecture 03]</div></li>
-        <li><div class="video-button" onclick="openModal('4wM4VEX2QEE')">🎥 Math [Lecture 09]</div></li>
-        <li><div class="video-button" onclick="openModal('H026YSuDG58')">🎥 English [Lecture 07]</div></li>
-        <li><div class="video-button" onclick="openModal('S4ZH8Yw8pWQ')">🎥 Bangla [Lecture 05]</div></li>
-      </ul>
-    </div>
-  </div>
-  
-        <!-- Bangla -->
-      <div class="accordion-item">
-        <div class="accordion-title">Bangla</div>
-        <div class="accordion-content">
-          <ul>
-            <li><div class="video-button" onclick="openModal('H3vlS6pEDwA')">🎥 Lecture 01</div></li>
-            <li><div class="video-button" onclick="openModal('UMh-ZlS4N80')">🎥 Lecture 02</div></li>
-            <li><div class="video-button" onclick="openModal('M88e2YHmYHE')">🎥 Lecture 03</div></li>
-            <li><div class="video-button" onclick="openModal('WQeOakPMs6U')">🎥 Lecture 04</div></li>
-            <li><div class="video-button" onclick="openModal('S4ZH8Yw8pWQ')">🎥 Lecture 05</div></li>
-            <li><div class="video-button" onclick="openModal('kcF77GljqfU')">🎥 Lecture 06</div></li>
-            <li><div class="video-button" onclick="openModal('2PlSzoQx9So')">🎥 Lecture 07</div></li>
-            <li><div class="video-button" onclick="openModal('rS73lzvUdZ0')">🎥 Lecture 08</div></li>
-            <li><div class="video-button" onclick="openModal('tzJ5-fWJ4hc')">🎥 Lecture 09</div></li>
-            <li><div class="video-button" onclick="openModal('3cBjiqGTGIU')">🎥 Lecture 10</div></li>
-            <li><div class="video-button" onclick="openModal('1XN-581K27g')">🎥 Lecture 11</div></li>
-            <li><div class="video-button" onclick="openModal('g3-9KfGKqxQ')">🎥 Lecture 12</div></li>
-          </ul>
+<body>
+  <section id="backgroundSection">
+    <div class="login-box">
+      <form id="loginForm" onsubmit="validateForm(event)">
+        <h2>Login</h2>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="mail-outline"></ion-icon>
+          </span>
+          <input type="text" id="username" name="username" required>
+          <label>Email</label>
         </div>
-      </div>
-    
-      
-     <!-- English -->
-  <div class="accordion-item">
-    <div class="accordion-title">English</div>
-    <div class="accordion-content">
-      <ul>
-            <li><div class="video-button" onclick="openModal('nECGaHDv1gs')">🎥 Lecture 01</div></li>
-            <li><div class="video-button" onclick="openModal('c75uR1v3tA0')">🎥 Lecture 02</div></li>
-            <li><div class="video-button" onclick="openModal('LITWuzD5YOc')">🎥 Lecture 03</div></li>
-            <li><div class="video-button" onclick="openModal('VgynfiqNeGU')">🎥 Lecture 04</div></li>
-            <li><div class="video-button" onclick="openModal('I3oaUsHxyz0')">🎥 Lecture 05</div></li>
-            <li><div class="video-button" onclick="openModal('OgXhO9Q7YLY')">🎥 Lecture 06</div></li>
-            <li><div class="video-button" onclick="openModal('H026YSuDG58')">🎥 Lecture 07</div></li>
-            <li><div class="video-button" onclick="openModal('rUcsJ51JqbA')">🎥 Lecture 08</div></li>
-            <li><div class="video-button" onclick="openModal('WECt3627kVk')">🎥 Lecture 09</div></li>
-            <li><div class="video-button" onclick="openModal('lZ3oFZRb44c')">🎥 Lecture 10</div></li>
-            <li><div class="video-button" onclick="openModal('vy2j3UBT6qQ')">🎥 Lecture 11</div></li>
-            <li><div class="video-button" onclick="openModal('yHfhgl_SAcs')">🎥 Lecture 12</div></li>
-            <li><div class="video-button" onclick="openModal('t15rpUbM47k')">🎥 Lecture 13</div></li>
-            <li><div class="video-button" onclick="openModal('pIwJxEt7_xg')">🎥 Lecture 14</div></li>
-            <li><div class="video-button" onclick="openModal('Hbv-X6Lz1FE')">🎥 Lecture 15</div></li>
-      </ul>
+
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+          </span>
+          <input type="password" id="password" name="password" required>
+          <label>Password</label>
+        </div>
+
+        <div class="remember-forgot">
+          <label>
+            <input type="checkbox" id="showPasswordCheckbox" onchange="togglePasswordVisibility()">
+            Show Password
+          </label>
+          <a href="forgot-password/index.html" target="_blank">Forgot Password?</a>
+        </div>
+
+        <button type="submit"><b>Login</b></button>
+
+        <div class="register-link">
+          <p>Don't have an account? 
+            <a href="create-account/index.html" target="_blank">Register</a>
+          </p>
+        </div>
+      </form>
     </div>
+  </section>
+
+  <div id="loggedInSection">
+<!-- ============================================================================================================ -->
+<!-- ============================================================================================================ -->
+
+
+  
+<!-- ============================================================================================================ -->
+<!-- ============================================================================================================ -->
   </div>
-      
-     <!-- Math -->
-  <div class="accordion-item">
-    <div class="accordion-title">Math</div>
-    <div class="accordion-content">
-      <ul>
-            <li><div class="video-button" onclick="openModal('OZlAu-jndFc')">🎥 Lecture 01</div></li>
-            <li><div class="video-button" onclick="openModal('NKp8MI10HNA')">🎥 Lecture 02</div></li>
-            <li><div class="video-button" onclick="openModal('pPn6-LrPLCM')">🎥 Lecture 03</div></li>
-            <li><div class="video-button" onclick="openModal('Ecw-8VYDRXw')">🎥 Lecture 04</div></li>
-            <li><div class="video-button" onclick="openModal('vGGjgizbIFo')">🎥 Lecture 05</div></li>
-            <li><div class="video-button" onclick="openModal('-xbvd8nEM8o')">🎥 Lecture 06</div></li>
-            <li><div class="video-button" onclick="openModal('g8IbwkFrPMA')">🎥 Lecture 07</div></li>
-            <li><div class="video-button" onclick="openModal('tqN7DbkTJJY')">🎥 Lecture 08</div></li>
-            <li><div class="video-button" onclick="openModal('4wM4VEX2QEE')">🎥 Lecture 09</div></li>
-            <li><div class="video-button" onclick="openModal('G3R2oLB-XIw')">🎥 Lecture 10</div></li>
-            <li><div class="video-button" onclick="openModal('oj1TPJ242vI')">🎥 Lecture 11</div></li>
-            <li><div class="video-button" onclick="openModal('dAh8F77h060')">🎥 Lecture 12</div></li>
-            <li><div class="video-button" onclick="openModal('yz1S0wIp7Dg')">🎥 Lecture 13</div></li>
-            <li><div class="video-button" onclick="openModal('liwU9caYONM')">🎥 Lecture 14</div></li>
-            <li><div class="video-button" onclick="openModal('AtmdWavdp2o')">🎥 Lecture 15</div></li>
-            <li><div class="video-button" onclick="openModal('M9cujdxrljg')">🎥 Lecture 16</div></li>
-            <li><div class="video-button" onclick="openModal('_4AWDGr6bOc')">🎥 Lecture 17</div></li>
-            <li><div class="video-button" onclick="openModal('m6Gp1YOcdjs')">🎥 Lecture 18</div></li>
-      </ul>
-    </div>
-  </div>
-    
-      
-     <!-- Bangladesh Affairs -->
-  <div class="accordion-item">
-    <div class="accordion-title">Bangladesh Affairs</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('ia9kKvcJ0Lc')">🎥 Lecture 01</div></li>
-        <li><div class="video-button" onclick="openModal('XdsKhYC_K2A')">🎥 Lecture 02</div></li>
-        <li><div class="video-button" onclick="openModal('QJnUJx0WIcg')">🎥 Lecture 03</div></li>
-        <li><div class="video-button" onclick="openModal('KXBNyToAfeE')">🎥 Lecture 04</div></li>
-        <li><div class="video-button" onclick="openModal('YQgxtrExsUI')">🎥 Lecture 05</div></li>
-      </ul>
-    </div>
-  </div>
-      
-     <!-- International Affairs -->
-  <div class="accordion-item">
-    <div class="accordion-title">International Affairs</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('G1XfYmZ0k1Y')">🎥 Lecture 01</div></li>
-        <li><div class="video-button" onclick="openModal('GcusMtfzUrM')">🎥 Lecture 02</div></li>
-        <li><div class="video-button" onclick="openModal('lM4yXXbzmTk')">🎥 Lecture 03</div></li>
-        <li><div class="video-button" onclick="openModal('i-ZwpS4fqU8')">🎥 Lecture 04</div></li>
-      </ul>
-    </div>
-  </div>
-    
-      
-     <!-- Daily Science -->
-  <div class="accordion-item">
-    <div class="accordion-title">Daily Science</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('l0IAftLddYs')">🎥 Lecture 01</div></li>
-        <li><div class="video-button" onclick="openModal('U52hSx6ztOU')">🎥 Lecture 02</div></li>
-        <li><div class="video-button" onclick="openModal('Rrqk0Cf5SuQ')">🎥 Lecture 03</div></li>
-      </ul>
-    </div>
-  </div>
-   
-        <!-- ICT -->
-  <div class="accordion-item">
-    <div class="accordion-title">ICT</div>
-    <div class="accordion-content">
-      <ul>
-        <li><div class="video-button" onclick="openModal('aCJ_CH2mzxQ')">🎥 Lecture 01</div></li>
-        <li><div class="video-button" onclick="openModal('tS09z6Ha4S4')">🎥 Lecture 02</div></li>
-      </ul>
-    </div>
-  </div>
-   
-   
-    
-    
-    
-</div>
 
+  <script>
+    function displaySuccessPopup() {
+      Swal.fire({
+        title: "UNLOCKED",
+        text: "Premium Subscription is active!",
+        icon: "success",
+        confirmButtonText: "Premium Service"
+      }).then(function () {
+        // ✅ Login success → redirect to another page (added line)
+        window.location.href = "another-page/index.html";
 
+        // Show the logged-in section after the alert is closed
+        document.getElementById('loggedInSection').style.display = 'block';
 
-Powered by Biddabari
+        // Hide the login form and background section
+        document.querySelector('.login-box').style.display = 'none';
+        document.getElementById('backgroundSection').style.display = 'none';
 
+        // Hide the section after 1 minute
+        setTimeout(function () {
+          document.getElementById('loggedInSection').style.display = 'none';
+          document.querySelector('.login-box').style.display = 'block';
+          document.getElementById('backgroundSection').style.display = 'flex'; // Show background section again
+        }, 3600000); // 1 minute (60 seconds * 1000 milliseconds)
 
-
-
-
-
-<!-- Modal -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal()">X</button>
-    <div id="videoContainer"></div>
-  </div>
-</div>
-
-<script>
-  const items = document.querySelectorAll('.accordion-item');
-
-  items.forEach(item => {
-    const title = item.querySelector('.accordion-title');
-    const content = item.querySelector('.accordion-content');
-
-    title.addEventListener('click', () => {
-      items.forEach(i => {
-        if (i !== item) {
-          i.classList.remove('active');
-          i.querySelector('.accordion-content').style.maxHeight = null;
-        }
+        // Reload the page after 1 minute and 1 seconds (61,000 milliseconds)
+        setTimeout(function () {
+          location.reload();
+        }, 3601000); // 1 minute (60 seconds) + 1 seconds
       });
-
-      item.classList.toggle('active');
-
-      if (item.classList.contains('active')) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } else {
-        content.style.maxHeight = null;
-      }
-    });
-  });
-
-  function openModal(videoId) {
-    const iframe = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allowfullscreen></iframe>`;
-    document.getElementById('videoContainer').innerHTML = iframe;
-    document.getElementById('modal').style.display = 'flex';
-  }
-
-  function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('videoContainer').innerHTML = '';
-  }
-
-  // Disable Inspect Shortcut
-  document.onkeydown = function(e) {
-    if (
-      e.key === "F12" || 
-      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) || 
-      (e.ctrlKey && e.key === "U")
-    ) {
-      return false;
     }
-  };
-</script>
 
+
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("password");
+      var checkbox = document.getElementById("showPasswordCheckbox");
+
+      if (checkbox.checked) {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+
+    function validateForm(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Define the valid username and password combinations
+      var validCredentials = [
+        { username: "admin", password: "111" },
+        { username: "user1", password: "111" },
+        { username: "user2", password: "222" },
+        { username: "roksanatithi ", password: "ruki@2025" },
+        { username: "Sakib42", password: "Hayabusa1300@" },
+        // Add more combinations here...
+      ];
+
+      var isUsernameValid = false;
+      var isPasswordValid = false;
+
+      // Check if the entered credentials match any valid combination
+      for (var i = 0; i < validCredentials.length; i++) {
+        var validUsername = validCredentials[i].username;
+        var validPassword = validCredentials[i].password;
+
+        if (username === validUsername && password === validPassword) {
+          displaySuccessPopup();
+          
+          // Show the logged-in section after successful login
+          document.getElementById('loggedInSection').style.display = 'block';
+          return;
+        }
+
+        if (username === validUsername) {
+          isUsernameValid = true;
+        }
+
+        if (password === validPassword) {
+          isPasswordValid = true;
+        }
+      }
+
+      if (!isUsernameValid && !isPasswordValid) {
+        Swal.fire({
+          title: "You don't have an account on our website!",
+          text: "The email address or mobile number you entered isn't connected to an account.",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      } else if (!isUsernameValid) {
+        Swal.fire({
+          title: "Invalid Username",
+          text: "The username that you've entered is incorrect.",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      } else {
+        Swal.fire({
+          title: "Invalid Password",
+          text: "The password that you've entered is incorrect.",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      }
+    }
+      
+      
+    // =========FOR Copy , DISABLE F12 & Inspect===========================
+      
+	// Courtesy OF MD ARAFAT
+	window.oncontextmenu = function () {
+				return false;
+			}
+			$(document).keydown(function (event) {
+				if (event.keyCode == 123) {
+					return false;
+				}
+				else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+					return false;
+				}
+			});
+    // =========FOR Copy , DISABLE F12 & Inspect===========================
+      
+      
+  </script>
 </body>
 </html>
