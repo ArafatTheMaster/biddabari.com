@@ -11,18 +11,99 @@
     }
 
     h1 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 30px;
+      background: #f0f4f9;              /* সাদা ব্যাকগ্রাউন্ড */
+
+      border: 1px solid #ddd;        /* হালকা ধূসর বর্ডার */
+      border-radius: 10px;           /* কোণা গোল */
+      padding: 20px;                 /* ভেতরের স্পেস */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* হালকা শেডো */
+      max-width: 600px;              /* চওড়া সীমাবদ্ধ */
+      margin: 20px auto;             /* পেজের মাঝে সেন্টার */
+      font-size: 26px;               /* লেখার সাইজ */
+      text-align: center;            /* টেক্সট সেন্টার */
     }
+
 
     .accordion {
       max-width: 600px;
       margin: auto;
     }
+      
+    /* Bangla */
+    .accordion-item.bangla .accordion-title {
+      background: #d8b3d4;
+      color: #000;
+    }
+    .accordion-item.bangla .accordion-content {
+      background: #f5e8f2;
+    }
+
+    /* English */
+    .accordion-item.english .accordion-title {
+      background: #f0ea9d;
+      color: #000;
+    }
+    .accordion-item.english .accordion-content {
+      background: #fdfbe3;
+    }
+
+    /* Mathematics */
+    .accordion-item.math .accordion-title {
+      background: #ada5d1;
+      color: #000;
+    }
+    .accordion-item.math .accordion-content {
+      background: #e8e4f5;
+    }
+
+    /* Bangladesh Affairs */
+    .accordion-item.bangladesh .accordion-title {
+      background: #74c37c;
+      color: #000;
+    }
+    .accordion-item.angladesh .accordion-content {
+      background: #e0f5e2;
+    }
+
+    /* International Affairs */
+    .accordion-item.international .accordion-title {
+      background: #78cbdf;
+      color: #000;
+    }
+    .accordion-item.international .accordion-content {
+      background: #e5f8fc;
+    }
+
+    /* ICT */
+    .accordion-item.ict .accordion-title {
+      background: #aad04b;
+      color: #000;
+    }
+    .accordion-item.ict .accordion-content {
+      background: #f2fce5;
+    }
+
+    /* General Science */
+    .accordion-item.science .accordion-title {
+      background: #c7c8ce;
+      color: #000;
+    }
+    .accordion-item.science .accordion-content {
+      background: #f5f6f7;
+    }
+
+    /* Optional */
+    .accordion-item.optional .accordion-title {
+      background: #f48ca1;
+      color: #000;
+    }
+    .accordion-item.optional .accordion-content {
+      background: #fde9ed;
+    }
+  
 
     .accordion-item {
-      background: white;
+
       border: 1px solid #ddd;
       margin-bottom: 10px;
       border-radius: 5px;
@@ -31,8 +112,8 @@
     }
 
     .accordion-title {
-      background: #008778;
-      color: #ffffff;
+
+
       font-size: 18px;
       padding: 20px;
       cursor: pointer;
@@ -43,8 +124,8 @@
       transition: background 0.3s ease;
     }
 
-    .accordion-title:hover {
-      background: #007666;
+    .accordion-item .accordion-title:hover {
+      filter: brightness(80%);
     }
 
     .accordion-content {
@@ -169,11 +250,11 @@
 </head>
 <body oncontextmenu="return false">
 
-<h1>11-20th Grade Gold Live</h1>
+<h1>𝟏𝟏-𝟐𝟎𝐭𝐡 𝐆𝐫𝐚𝐝𝐞 𝐆𝐨𝐥𝐝 𝐋𝐢𝐯𝐞</h1>
 
 <div class="accordion">
   <!-- Orientation Class -->
-  <div class="accordion-item">
+  <div class="accordion-item optional">
     <div class="accordion-title">Orientation Live Class</div>
     <div class="accordion-content">
       <ul>
@@ -193,9 +274,15 @@
       </ul>
     </div>
   </div>
-
+  
+    </div>
+ 
+   
+    <h1>𝐑𝐮𝐧𝐧𝐢𝐧𝐠 𝐏𝐫𝐞𝐥𝐢 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
+    
+  <div class="accordion">  
   <!-- Bangla -->
-  <div class="accordion-item">
+  <div class="accordion-item bangla">
     <div class="accordion-title">Bangla Preli</div>
     <div class="accordion-content">
       <ul>
@@ -287,7 +374,7 @@
   </div>
 
   <!-- English -->
-  <div class="accordion-item">
+  <div class="accordion-item english">
     <div class="accordion-title">English Preli</div>
     <div class="accordion-content">
       <ul>
@@ -358,7 +445,7 @@
 
 
   <!-- Math -->
-  <div class="accordion-item">
+  <div class="accordion-item math">
     <div class="accordion-title">Mathematics Preli</div>
     <div class="accordion-content">
       <ul>
@@ -483,14 +570,14 @@
   
   
   
-        <h1>𝐖𝐫𝐢𝐭𝐭𝐞𝐧 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
+        <h1>𝐑𝐮𝐧𝐧𝐢𝐧𝐠 𝐖𝐫𝐢𝐭𝐭𝐞𝐧 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
         <div class="accordion">
 
 
 
 
           <!-- Bangla -->
-          <div class="accordion-item">
+          <div class="accordion-item bangla">
             <div class="accordion-title">Bangla Written</div>
             <div class="accordion-content">
               <ul>
@@ -542,7 +629,7 @@
           </div>
 
           <!-- English -->
-          <div class="accordion-item">
+          <div class="accordion-item english">
             <div class="accordion-title">English Written</div>
             <div class="accordion-content">
               <ul>
@@ -584,7 +671,7 @@
 
 
           <!-- Mathematics -->
-          <div class="accordion-item">
+          <div class="accordion-item math">
             <div class="accordion-title">Mathematics Written</div>
             <div class="accordion-content">
               <ul>
@@ -634,14 +721,14 @@
                
                 
                   
-        <h1>𝐏𝐫𝐞𝐦𝐢𝐮𝐦 𝐑𝐞𝐜𝐨𝐫𝐝𝐞𝐝 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
+        <h1>𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞 𝐑𝐞𝐜𝐨𝐫𝐝𝐞𝐝 𝐏𝐫𝐞𝐥𝐢𝐦𝐬 𝐂𝐨𝐮𝐫𝐬𝐞</h1>
         <div class="accordion">
 
 
 
 
           <!-- Bangla -->
-          <div class="accordion-item">
+          <div class="accordion-item bangla">
             <div class="accordion-title">Bangla</div>
             <div class="accordion-content">
               <ul>
@@ -807,7 +894,7 @@
            
 
           <!-- English -->
-          <div class="accordion-item">
+          <div class="accordion-item english">
             <div class="accordion-title">English</div>
             <div class="accordion-content">
               <ul>
@@ -993,7 +1080,7 @@
 
 
           <!-- Mathematics -->
-          <div class="accordion-item">
+          <div class="accordion-item math">
             <div class="accordion-title">Mathematics</div>
             <div class="accordion-content">
               <ul>
@@ -1230,7 +1317,7 @@
 
 
           <!-- Bangladesh Affairs -->
-          <div class="accordion-item">
+          <div class="accordion-item bangladesh">
             <div class="accordion-title">Bangladesh Affairs</div>
             <div class="accordion-content">
               <ul>
@@ -1312,7 +1399,7 @@
           
           
           <!-- International Affairs -->
-          <div class="accordion-item">
+          <div class="accordion-item international">
             <div class="accordion-title">International Affairs</div>
             <div class="accordion-content">
               <ul>
@@ -1378,7 +1465,7 @@
           
           
           <!-- Daily Science -->
-          <div class="accordion-item">
+          <div class="accordion-item science">
             <div class="accordion-title">Daily Science</div>
             <div class="accordion-content">
               <ul>
@@ -1435,7 +1522,7 @@
           
           
           <!-- ICT : Information and Communication Technology -->
-          <div class="accordion-item">
+          <div class="accordion-item ict">
             <div class="accordion-title">ICT : Information and Communication Technology</div>
             <div class="accordion-content">
               <ul>
