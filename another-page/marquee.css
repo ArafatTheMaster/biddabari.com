@@ -1,5 +1,5 @@
     :root{
-        --speed: 50s; /* Increase to slow down */
+        --speed: 59s; /* Increase to slow down */
     }
 
     * {
@@ -72,4 +72,5 @@
             font-size:14px;
             padding-left:12px;
         }
+
     }
