@@ -31,12 +31,13 @@ function validateForm(event) {
         
         
         { username: "admin", password: "Web&CEO@1234", userType: "admin" },
-        { username: "roksanatithi", password: "ruki@2025" userType: "admin" },
-        { username: "Bethy", password: "7854" userType: "admin" },
+
+        { username: "roksanatithi", password: "ruki@2025", userType: "admin" },
+        { username: "Bethy", password: "7854", userType: "admin" },
         { username: "srsakib", password: "srsakib", userType: "admin" },
         
         
-        
+         
         { username: "user1", password: "111", userType: "free" },
         { username: "user2", password: "222", userType: "free" },
         { username: "user3", password: "333", userType: "free" },
@@ -90,5 +91,6 @@ function logout() {
     localStorage.removeItem('userType');
     location.reload();
 }
+
 
 
