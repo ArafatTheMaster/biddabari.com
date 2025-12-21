@@ -2,6 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+	<!--=============================================================
+	
+	=================================================================-->
+	<script type="text/JavaScript">
+			// Courtesy OF MD ARAFAT
+			function killCopy(e){
+			return false
+			}
+			function reEnable(){
+			return true
+			}
+			document.onselectstart=new Function ("return false")
+			if (window.sidebar){
+			document.onmousedown=killCopy
+			document.onclick=reEnable
+			}
+	</script>
+	<!--=============================================================
+	
+	=================================================================-->
+
+ 
 <title>DASHBOARD</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
@@ -202,6 +225,9 @@ body{
   z-index:20;
 }
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
 </head>
 
 <body>
@@ -694,5 +720,26 @@ function closeModal(){
 }
 </script>
 
+
+<!--=============================================================
+	
+	=================================================================-->
+	<script>
+	// Courtesy OF MD ARAFAT
+	window.oncontextmenu = function () {
+				return false;
+			}
+			$(document).keydown(function (event) {
+				if (event.keyCode == 123) {
+					return false;
+				}
+				else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+					return false;
+				}
+			});
+	</script>
+    <!--=============================================================
+	
+	=================================================================-->
 </body>
 </html>
