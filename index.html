@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DASHBOARD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ================= RESET ================= */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(180deg,#020617,#020617);
+  color:#fff;
+}
+
+/* ================= LOGIN ================= */
+#loginSection{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.login-box{
+  background:#1e293b;
+  padding:30px;
+  border-radius:16px;
+  width:100%;
+  max-width:360px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.login-box h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+.login-box input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:8px;
+}
+.login-box button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:#22c55e;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ================= DASHBOARD ================= */
+#dashboard{
+  display:none;
+  min-height:100vh;
+}
+
+.admin-badge{
+  background:#facc15;
+  color:#111;
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:6px;
+  font-weight:600;
+  margin-left:6px;
+}
+    
+    
+/* ================= TOPBAR ================= */
+.topbar{
+  background:#e11d48;
+  padding:12px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.user-info{
+  font-size:14px;
+}
+.logout{
+  background:#7c3aed;
+  border:none;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* ================= CONTENT ================= */
+.container{
+  max-width:1100px;
+  margin:30px auto;
+  padding:0 16px;
+}
+.title{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* ================= ACCORDION ================= */
+.phase{
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  margin-bottom:16px;
+  overflow:hidden;
+}
+.phase-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px;
+  cursor:pointer;
+}
+.phase-header .icon{
+  font-size:20px;
+  transition:.4s;
+}
+.phase.open .icon{
+  transform:rotate(45deg);
+}
+.phase-body{
+  height:0;
+  overflow:hidden;
+  transition:height .4s ease;
+}
+
+/* ================= LESSON GRID ================= */
+.lessons{
+  padding:16px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.lesson-btn{
+  background:#072036;
+  border:none;
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+@media(max-width:768px){
+  .lessons{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ================= CINEMATIC POPUP ================= */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:9999;
+}
+.modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.video-card{
+  width:92%;
+  max-width:1200px;
+  background:#000;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  border:2px solid rgba(255,255,255,0.85);
+}
+
+.video-frame{
+  position:relative;
+  padding-top:56.25%;
+}
+.video-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.close-btn{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#ef4444;
+  border:none;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  z-index:20;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+<section id="loginSection">
+  <div class="login-box">
+    <h2>Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">LOGIN</button>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+<div id="dashboard">
+  <div class="topbar">
+    <div class="user-info" id="userInfo"></div>
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+    <h2 class="title">P𝐫𝐢𝐦𝐚𝐫𝐲 ১ম ধাপ 𝐂𝐫𝐚𝐬𝐡 𝐋𝐢𝐯𝐞 𝐁𝐚𝐭𝐜𝐡</h2>
+
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Bangla</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="-RtDJPsPJjA">Lecture -- 1+2+3</button>
+          <button class="lesson-btn" data-v="bews5T6FbAw">Lecture -- 4+5+6</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>English</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="Ye1C2KVbUlc">Lecture -- 1+2+3</button>
+          <button class="lesson-btn" data-v="AFPgpolsdyo">Lecture -- 4+5+6</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Math</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="ENRaqv0Ddcs">Lecture -- 1+2+3</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>General Knowledge</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="zvOicu-hfCM">Lesson 01</button>
+          <button class="lesson-btn" data-v="BMG6Un9Y578">Lesson 02</button>
+          <button class="lesson-btn" data-v="85SUG5OFizo">Lesson 03</button>
+          <button class="lesson-btn" data-v="W-xH4-lW11A">Lesson 04</button>
+          <button class="lesson-btn" data-v="IBguLhr_AYE">Lesson 05</button>
+          <button class="lesson-btn" data-v="rL4diCLw5zw">Lesson 06</button>
+          <button class="lesson-btn" data-v="Mu_U0aRTTXQ">Lesson 07</button>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  
+  
+  
+  
+  
+  
+    <div class="container">
+    <h2 class="title">Bonus : 11-20th Grade Premium Course</h2>
+
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Bangla</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="T2bdL96mqfU">Lesson 01</button>
+          <button class="lesson-btn" data-v="9tqLd_QZorE">Lesson 02</button>
+          <button class="lesson-btn" data-v="uexJo1HOhTQ">Lesson 03</button>
+          <button class="lesson-btn" data-v="fKzF27JHrmI">Lesson 04</button>
+          <button class="lesson-btn" data-v="jLzeBxV5z8M">Lesson 05</button>
+          <button class="lesson-btn" data-v="2GJ9-0Utmls">Lesson 06</button>
+          <button class="lesson-btn" data-v="RHBHLOYOgqQ">Lesson 07</button>
+          <button class="lesson-btn" data-v="ziRkX1GreuQ">Lesson 08</button>
+          <button class="lesson-btn" data-v="HOEB6P265no">Lesson 09</button>
+          <button class="lesson-btn" data-v="gN2YRVjWpdY">Lesson 10</button>
+          <button class="lesson-btn" data-v="m_t9-UNrCMI">Lesson 11</button>
+          <button class="lesson-btn" data-v="o-EbOFS_iYk">Lesson 12</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>English</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="amxrMjIN21g">Lesson 01</button>
+          <button class="lesson-btn" data-v="E4fuyCKRQNo">Lesson 02</button>
+          <button class="lesson-btn" data-v="5h_t2SsQuBE">Lesson 03</button>
+          <button class="lesson-btn" data-v="5l4h7H-U_R8">Lesson 04</button>
+          <button class="lesson-btn" data-v="MPqOxBgggXc">Lesson 05</button>
+          <button class="lesson-btn" data-v="jRsFCS4O2Pk">Lesson 06</button>
+          <button class="lesson-btn" data-v="vH_DF00OTS4">Lesson 07</button>
+          <button class="lesson-btn" data-v="dAWIV0F6WNU">Lesson 08</button>
+          <button class="lesson-btn" data-v="q3vI2Q1AdP4">Lesson 09</button>
+          <button class="lesson-btn" data-v="WaDJuc2_lsE">Lesson 10</button>
+          <button class="lesson-btn" data-v="hMBv7fUWg5g">Lesson 11</button>
+          <button class="lesson-btn" data-v="UIDWWhAC2X0">Lesson 12</button>
+          <button class="lesson-btn" data-v="KV1_kGTUbB8">Lesson 13</button>
+          <button class="lesson-btn" data-v="GTRdQDU45cU">Lesson 14</button>
+          <button class="lesson-btn" data-v="FAi-wzHK9aI">Lesson 15</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Math</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="suNDx2Z20vg">Lesson 01</button>
+          <button class="lesson-btn" data-v="BRTKLmsqFOs">Lesson 02</button>
+          <button class="lesson-btn" data-v="HaYBS5YwIno">Lesson 03</button>
+          <button class="lesson-btn" data-v="t0JP6PDsUa0">Lesson 04</button>
+          <button class="lesson-btn" data-v="3n4PGLKNpG8">Lesson 05</button>
+          <button class="lesson-btn" data-v="nvAjShjUccc">Lesson 06</button>
+          <button class="lesson-btn" data-v="IhzJnyAAmEI">Lesson 07</button>
+          <button class="lesson-btn" data-v="LFR_nZxmar4">Lesson 08</button>
+          <button class="lesson-btn" data-v="-eqV71BtmBw">Lesson 09</button>
+          <button class="lesson-btn" data-v="Zf0EkDAaA8k">Lesson 10</button>
+          <button class="lesson-btn" data-v="ZQreMGySjy8">Lesson 11</button>
+          <button class="lesson-btn" data-v="_J1ZMYt6bKo">Lesson 12</button>
+          <button class="lesson-btn" data-v="iCSDxxgmhpQ">Lesson 13</button>
+          <button class="lesson-btn" data-v="D-b_50LQqLM">Lesson 14</button>
+          <button class="lesson-btn" data-v="seMnCw_m16g">Lesson 15</button>
+          <button class="lesson-btn" data-v="6TUwHfJK_H0">Lesson 16</button>
+          <button class="lesson-btn" data-v="ypEBLT2h0Mk">Lesson 17</button>
+          <button class="lesson-btn" data-v="ZN4fhPqmuoU">Lesson 18</button>
+        </div>
+      </div>
+    </div>
+        
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Bangladesh Affairs</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="flLnHP8j-sI">Lesson 01</button>
+          <button class="lesson-btn" data-v="qJ_XHY9dGB0">Lesson 02</button>
+          <button class="lesson-btn" data-v="GlwLbKMXxaw">Lesson 03</button>
+          <button class="lesson-btn" data-v="Cuu51jvbz4Q">Lesson 04</button>
+          <button class="lesson-btn" data-v="MUOwzD-ykcc">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>International Affairs</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="4r0qvXy1Jpg">Lesson 01</button>
+          <button class="lesson-btn" data-v="igTFUBmtvrY">Lesson 02</button>
+          <button class="lesson-btn" data-v="F3zy_HE9kuQ">Lesson 03</button>
+          <button class="lesson-btn" data-v="TuirngI83sE">Lesson 04</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Daily Science</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="cIZoJ4RpQ7I">Lesson 01</button>
+          <button class="lesson-btn" data-v="QZJf21HajSE">Lesson 02</button>
+          <button class="lesson-btn" data-v="Dz9KG0O_kNM">Lesson 03</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Info. and Communication Technology</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="HBjxbszukCw">Lesson 01</button>
+          <button class="lesson-btn" data-v="M-hzJQOtzHQ">Lesson 02</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  
+  
+  
+  
+  
+  <div class="container">
+    <h2 class="title">11-20th Grade Gold Live Batch</h2>
+
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Bangla</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>English</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Math</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>General Knowledge</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Bangladesh Affairs</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>International Affairs</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Daily Science</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="phase open">
+      <div class="phase-header">
+        <span>Information and Communication Technology</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="lessons">
+          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
+          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
+          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
+          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
+          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+<!-- ================= POPUP ================= -->
+<div class="modal" id="modal">
+  <div class="video-card">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <div class="video-frame" id="videoFrame"></div>
+  </div>
+</div>
+
+<script>
+/* ================= USERS ================= */
+const USERS=[
+ {u:"admin",p:"Web&CEO@1234",role:"admin",name:"Arafat"},
+ {u:"rptithi",p:"tithi2002",role:"user",name:"Tithi"},
+ {u:"Bethy",p:"7854",role:"user",name:"Bethi"},
+ {u:"srsakib",p:"srsakib",role:"user",name:"Sakib"}
+];
+const LIMIT=12*60*60*1000;
+    
+/* ================= AUTO LOGIN ================= */
+const session=JSON.parse(localStorage.getItem("session"));
+if(session){
+  if(session.role==="admin" || Date.now()-session.time<LIMIT){
+    showDashboard(session);
+  }else{
+    localStorage.clear();
+  }
+}
+
+/* ================= LOGIN ================= */
+function login(){
+  const u=username.value.trim();
+  const p=password.value.trim();
+  const user=USERS.find(x=>x.u===u && x.p===p);
+  if(!user){alert("Invalid login");return;}
+  const data={...user,time:Date.now()};
+  localStorage.setItem("session",JSON.stringify(data));
+  showDashboard(data);
+}
+
+function showDashboard(user){
+  loginSection.style.display="none";
+  dashboard.style.display="block";
+  userInfo.innerHTML = `
+  👤 Welcome, 🟢 ${user.name}
+  ${user.role==="admin"
+    ? `<span class="admin-badge">👑 Admin</span>`
+    : `<span class="admin-badge" style="background:#22c55e">⭐ Active</span>`
+  }
+`;
+
+}
+
+/* ================= LOGOUT ================= */
+function logout(){
+  localStorage.clear();
+  location.reload();
+}
+
+/* ================= ACCORDION ================= */
+document.querySelectorAll(".phase-header").forEach(h=>{
+  h.onclick=()=>{
+    document.querySelectorAll(".phase").forEach(p=>{
+      if(p!==h.parentElement){
+        p.classList.remove("open");
+        p.querySelector(".phase-body").style.height="0px";
+      }
+    });
+    const p=h.parentElement;
+    const body=p.querySelector(".phase-body");
+    if(p.classList.contains("open")){
+      body.style.height="0px";
+      p.classList.remove("open");
+    }else{
+      p.classList.add("open");
+      body.style.height=body.scrollHeight+"px";
+      body.ontransitionend=()=>body.style.height="auto";
+    }
+  };
+});
+
+/* ================= POPUP ================= */
+document.querySelectorAll(".lesson-btn").forEach(btn=>{
+  btn.onclick=()=>{
+    videoFrame.innerHTML=
+      `<iframe src="https://www.youtube.com/embed/${btn.dataset.v}?autoplay=1&rel=0"
+       allowfullscreen></iframe>`;
+    modal.classList.add("show");
+    document.body.style.overflow="hidden";
+  };
+});
+
+function closeModal(){
+  modal.classList.remove("show");
+  videoFrame.innerHTML="";
+  document.body.style.overflow="";
+}
+</script>
+
+</body>
+</html>
