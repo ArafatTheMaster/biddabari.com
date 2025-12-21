@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 
-	<!--=============================================================
+<!--=============================================================
 	
 	=================================================================-->
 	<script type="text/JavaScript">
@@ -24,7 +24,6 @@
 	
 	=================================================================-->
 
- 
 <title>DASHBOARD</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
@@ -121,7 +120,7 @@ body{
 .title{
   text-align:center;
   margin-bottom:20px;
-  color: #FFC107;
+  color: #facc15;
 }
 
 /* ================= ACCORDION ================= */
@@ -166,6 +165,17 @@ body{
   border-radius:10px;
   cursor:pointer;
 }
+
+.lesson-btn.is-disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+  pointer-events:none; /* 🔴 আসল জিনিস */
+  filter:grayscale(100%);
+}
+
+    
+    
+    
 @media(max-width:768px){
   .lessons{grid-template-columns:repeat(2,1fr);}
 }
@@ -224,10 +234,31 @@ body{
   cursor:pointer;
   z-index:20;
 }
-</style>
+    
+    
+/* ================= ONLINE INDICATOR ================= */
+.online-dot{
+  width:10px;
+  height:10px;
+  background:#22c55e;
+  border-radius:50%;
+  display:inline-block;
+  margin:0 6px;
+  box-shadow:0 0 6px #22c55e;
+}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
+/* USER BADGE FIX */
+.user-info{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+}
+    
+    
+</style>
+    <!-- Jquery Needed for F12 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -259,6 +290,14 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+        
+        
+        <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1MpbsEKdmNXH91htDVNIKYAjT_dWD9YKg?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+
+
           <button class="lesson-btn" data-v="-RtDJPsPJjA">Lecture -- 1+2+3</button>
           <button class="lesson-btn" data-v="bews5T6FbAw">Lecture -- 4+5+6</button>
         </div>
@@ -272,6 +311,12 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+         
+         <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1AC2unTsDY3Jb-FdFr3R5rKs5XPWzwpiv?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+         
           <button class="lesson-btn" data-v="Ye1C2KVbUlc">Lecture -- 1+2+3</button>
           <button class="lesson-btn" data-v="AFPgpolsdyo">Lecture -- 4+5+6</button>
         </div>
@@ -285,7 +330,14 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+         
+         <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1ep_NCUejaa7JmWRPjO7kTm39L0oi_2cL?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+         
           <button class="lesson-btn" data-v="ENRaqv0Ddcs">Lecture -- 1+2+3</button>
+          
         </div>
       </div>
     </div>
@@ -297,6 +349,12 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+         
+         <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1barg386rss25iOF-XWQuRODmUZKpEo8p?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+         
           <button class="lesson-btn" data-v="zvOicu-hfCM">Lesson 01</button>
           <button class="lesson-btn" data-v="BMG6Un9Y578">Lesson 02</button>
           <button class="lesson-btn" data-v="85SUG5OFizo">Lesson 03</button>
@@ -327,6 +385,12 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+         
+         <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1340JlZXf9pXdQybv9FN7TMNqLpoSRS_c?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+         
           <button class="lesson-btn" data-v="T2bdL96mqfU">Lesson 01</button>
           <button class="lesson-btn" data-v="9tqLd_QZorE">Lesson 02</button>
           <button class="lesson-btn" data-v="uexJo1HOhTQ">Lesson 03</button>
@@ -350,6 +414,12 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+         
+         <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1b4FLeABVHgfIg7e4a2YbNeWLAdOqcBLO?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+         
           <button class="lesson-btn" data-v="amxrMjIN21g">Lesson 01</button>
           <button class="lesson-btn" data-v="E4fuyCKRQNo">Lesson 02</button>
           <button class="lesson-btn" data-v="5h_t2SsQuBE">Lesson 03</button>
@@ -376,6 +446,12 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
+         
+         <button class="lesson-btn drive-btn" 
+        data-link="https://drive.google.com/drive/folders/1OgmCt3Rds-zSgkAXyTEMNpR9ZYEna8VI?usp=drive_link">
+        📁 Lecture Sheet PDF
+        </button>
+         
           <button class="lesson-btn" data-v="suNDx2Z20vg">Lesson 01</button>
           <button class="lesson-btn" data-v="BRTKLmsqFOs">Lesson 02</button>
           <button class="lesson-btn" data-v="HaYBS5YwIno">Lesson 03</button>
@@ -475,11 +551,11 @@ body{
       </div>
       <div class="phase-body">
         <div class="lessons">
-          <button class="lesson-btn" data-v="l2vB4qovRoE">Lesson 01</button>
-          <button class="lesson-btn" data-v="zAs2Uq5pYvg">Lesson 02</button>
-          <button class="lesson-btn" data-v="mKnFLXJwmu4">Lesson 03</button>
-          <button class="lesson-btn" data-v="vVD9Owj31sU">Lesson 04</button>
-          <button class="lesson-btn" data-v="Dofx24iTXiw">Lesson 05</button>
+          <button class="lesson-btn is-disabled" data-v="bews5T6FbAw">Lesson 01</button>
+          <button class="lesson-btn is-disabled" data-v="bews5T6FbAw">Lesson 02</button>
+          <button class="lesson-btn is-disabled" data-v="bews5T6FbAw">Lesson 03</button>
+          <button class="lesson-btn is-disabled" data-v="bews5T6FbAw">Lesson 04</button>
+          <button class="lesson-btn is-disabled" data-v="bews5T6FbAw">Lesson 05</button>
         </div>
       </div>
     </div>
@@ -632,16 +708,16 @@ body{
 
 <script>
 /* ================= USERS ================= */
-const USERS=[
+const USERS = [
  {u:"admin",p:"Web&CEO@1234",role:"admin",name:"Arafat"},
  {u:"rptithi",p:"tithi2002",role:"user",name:"Tithi"},
  {u:"Bethy",p:"7854",role:"user",name:"Bethi"},
  {u:"srsakib",p:"srsakib",role:"user",name:"Sakib"}
 ];
-const LIMIT=12*60*60*1000;
-    
+const LIMIT = 12*60*60*1000;
+
 /* ================= AUTO LOGIN ================= */
-const session=JSON.parse(localStorage.getItem("session"));
+const session = JSON.parse(localStorage.getItem("session"));
 if(session){
   if(session.role==="admin" || Date.now()-session.time<LIMIT){
     showDashboard(session);
@@ -652,11 +728,12 @@ if(session){
 
 /* ================= LOGIN ================= */
 function login(){
-  const u=username.value.trim();
-  const p=password.value.trim();
-  const user=USERS.find(x=>x.u===u && x.p===p);
-  if(!user){alert("Invalid login");return;}
-  const data={...user,time:Date.now()};
+  const u = username.value.trim();
+  const p = password.value.trim();
+  const user = USERS.find(x=>x.u===u && x.p===p);
+  if(!user){ alert("Invalid login"); return; }
+
+  const data = {...user,time:Date.now()};
   localStorage.setItem("session",JSON.stringify(data));
   showDashboard(data);
 }
@@ -664,15 +741,19 @@ function login(){
 function showDashboard(user){
   loginSection.style.display="none";
   dashboard.style.display="block";
-  userInfo.innerHTML = `
-  👤 Welcome, 🟢 ${user.name}
-  ${user.role==="admin"
-    ? `<span class="admin-badge">👑 Admin</span>`
-    : `<span class="admin-badge" style="background:#22c55e">⭐ Active</span>`
-  }
-`;
 
+  userInfo.innerHTML = `
+    👤 Welcome,
+    <span class="online-dot"></span>
+    <strong>${user.name}</strong>
+    ${
+      user.role === "admin"
+        ? `<span class="admin-badge">👑 Admin</span>`
+        : `<span class="admin-badge" style="background:#22c55e">⭐ Active</span>`
+    }
+  `;
 }
+
 
 /* ================= LOGOUT ================= */
 function logout(){
@@ -682,37 +763,53 @@ function logout(){
 
 /* ================= ACCORDION ================= */
 document.querySelectorAll(".phase-header").forEach(h=>{
-  h.onclick=()=>{
-    document.querySelectorAll(".phase").forEach(p=>{
-      if(p!==h.parentElement){
-        p.classList.remove("open");
-        p.querySelector(".phase-body").style.height="0px";
-      }
-    });
-    const p=h.parentElement;
-    const body=p.querySelector(".phase-body");
+  h.addEventListener("click",()=>{
+    const p = h.parentElement;
+    const body = p.querySelector(".phase-body");
+
     if(p.classList.contains("open")){
       body.style.height="0px";
       p.classList.remove("open");
     }else{
+      document.querySelectorAll(".phase").forEach(x=>{
+        x.classList.remove("open");
+        x.querySelector(".phase-body").style.height="0px";
+      });
       p.classList.add("open");
-      body.style.height=body.scrollHeight+"px";
-      body.ontransitionend=()=>body.style.height="auto";
+      body.style.height = body.scrollHeight+"px";
     }
-  };
+  });
 });
 
-/* ================= POPUP ================= */
+/* ================= LESSON BUTTON HANDLER (FIXED) ================= */
 document.querySelectorAll(".lesson-btn").forEach(btn=>{
-  btn.onclick=()=>{
-    videoFrame.innerHTML=
-      `<iframe src="https://www.youtube.com/embed/${btn.dataset.v}?autoplay=1&rel=0"
-       allowfullscreen></iframe>`;
-    modal.classList.add("show");
-    document.body.style.overflow="hidden";
-  };
+  btn.addEventListener("click",()=>{
+
+    /* 🔴 Disabled */
+    if(btn.classList.contains("is-disabled")) return;
+
+    /* 🟢 Google Drive */
+    if(btn.dataset.link){
+      window.open(btn.dataset.link, "_blank");
+      return;
+    }
+
+    /* 🎬 YouTube Video */
+    if(btn.dataset.v){
+      videoFrame.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${btn.dataset.v}?autoplay=1&rel=0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>`;
+      modal.classList.add("show");
+      document.body.style.overflow="hidden";
+    }
+
+  });
 });
 
+/* ================= CLOSE MODAL ================= */
 function closeModal(){
   modal.classList.remove("show");
   videoFrame.innerHTML="";
@@ -721,7 +818,10 @@ function closeModal(){
 </script>
 
 
-<!--=============================================================
+
+
+
+	<!--=============================================================
 	
 	=================================================================-->
 	<script>
@@ -741,5 +841,9 @@ function closeModal(){
     <!--=============================================================
 	
 	=================================================================-->
+
+
+
+
 </body>
 </html>
