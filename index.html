@@ -124,28 +124,57 @@ body{
 }
     
  
-    /* ===== LOCKED CONTENT STYLE ===== */
-    .locked {
-      opacity: 0.35;
-      pointer-events: none;
-      filter: grayscale(100%) blur(1px);
-      position: relative;
-    }
 
-    .locked::after {
-      content: "🔒 Locked";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      font-weight: 600;
-      color: #facc15;
-      z-index: 99;
-    }    
-    
+/* ===== LOCKED CONTENT STYLE (FINAL WORKING) ===== */
+
+.locked {
+  pointer-events: none;
+  position: relative;
+}
+
+/* Dark overlay */
+.locked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 90;
+}
+
+/* Lock message wrapper */
+.lock-msg {
+  display: none;
+}
+
+.locked .lock-msg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  text-align: center;
+}
+
+/* 🔒 title */
+.lock-msg .lock-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ef4444; /* 🔴 RED */
+  margin-bottom: 8px;
+  text-shadow: 0 0 15px rgba(0,0,0,0.9);
+}
+
+/* payment text */
+.lock-msg .lock-sub {
+  font-size: 18px;
+  color: #facc15; /* 🟡 YELLOW */
+  text-shadow: 0 0 10px rgba(0,0,0,0.9);
+}
+
+
+
     
 
 /* ================= ACCORDION ================= */
@@ -306,6 +335,12 @@ body{
   </div>
 
   <div class="container" data-section="one">
+  <!-- 🔒 LOCK MESSAGE (MUST BE FIRST) -->
+  <span class="lock-msg">
+    <div class="lock-title">🔒 Locked!</div>
+    <div class="lock-sub">You have to pay for this.</div>
+  </span>
+    
     <h2 class="title">P𝐫𝐢𝐦𝐚𝐫𝐲 ১ম ধাপ 𝐂𝐫𝐚𝐬𝐡 𝐋𝐢𝐯𝐞 𝐁𝐚𝐭𝐜𝐡</h2>
 
     <div class="phase open">
@@ -402,6 +437,12 @@ body{
   
   
   <div class="container" data-section="two">
+   <!-- 🔒 LOCK MESSAGE (MUST BE FIRST) -->
+  <span class="lock-msg">
+    <div class="lock-title">🔒 Locked!</div>
+    <div class="lock-sub">You have to pay for this.</div>
+  </span>
+
     <h2 class="title">BCS Premium Recorded Course</h2>
 
     <div class="phase open">
@@ -745,6 +786,12 @@ body{
   
   
     <div class="container" data-section="three">
+      <!-- 🔒 LOCK MESSAGE (MUST BE FIRST) -->
+      <span class="lock-msg">
+        <div class="lock-title">🔒 Locked!</div>
+        <div class="lock-sub">You have to pay for this.</div>
+      </span>
+
     <h2 class="title">Bonus : 11-20th Grade Premium Course</h2>
 
     <div class="phase open">
@@ -911,6 +958,15 @@ body{
   
   
   <div class="container" data-section="four">
+   <!-- 🔒 LOCK MESSAGE (MUST BE FIRST) -->
+  <span class="lock-msg">
+    <div class="lock-title">🔒 Locked!</div>
+    <div class="lock-sub">You have to pay for this.</div>
+  </span>
+    
+    
+    
+
     <h2 class="title">11-20th Grade Gold Live Batch</h2>
 
     <div class="phase open">
@@ -1108,7 +1164,7 @@ const USERS = [
     u:"srsakib",
     p:"srsakib",
     role:"user",
-    name:"Bethi",
+    name:"Sakib",
     allowedSections: ["one","two","three"] // 1 + 2 + 3
   },
     
@@ -1117,7 +1173,7 @@ const USERS = [
     u:"SadiaEva",
     p:"SadiaEva",
     role:"user",
-    name:"Sakib",
+    name:"Sadia",
     allowedSections: [] // All LOCK!
   }
 ];
