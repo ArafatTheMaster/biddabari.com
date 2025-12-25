@@ -1314,38 +1314,46 @@ function closeModal(){
 	
 	=================================================================-->
      <script>
-      // Disable Right Click
-      window.oncontextmenu = () => false;
+  // Disable Right Click
+  window.oncontextmenu = () => false;
 
-      document.addEventListener("keydown", function(e){
+  // Function to block certain keys
+  function blockKeys(e) {
+    // F12
+    if (e.key === "F12") {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
 
-        // F12
-        if(e.key === "F12"){
-          e.preventDefault();
-          return false;
-        }
+    // Ctrl + S
+    if (e.ctrlKey && (e.key === "s" || e.key === "S")) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
 
-        // Ctrl + S (Save Page)
-        if(e.ctrlKey && (e.key === "s" || e.key === "S")){
-          e.preventDefault();
-          alert("Saving this page is disabled!");
-          return false;
-        }
+    // Ctrl + U
+    if (e.ctrlKey && (e.key === "u" || e.key === "U")) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
 
-        // Ctrl + U (View Source)
-        if(e.ctrlKey && (e.key === "u" || e.key === "U")){
-          e.preventDefault();
-          return false;
-        }
+    // Ctrl + Shift + I / J
+    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
+  }
 
-        // Ctrl + Shift + I / J (DevTools)
-        if(e.ctrlKey && e.shiftKey && 
-           (e.key === "I" || e.key === "J")){
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
+  // Attach listeners
+  ["keydown", "keypress", "keyup"].forEach(evt => {
+    document.addEventListener(evt, blockKeys, true); // capture phase
+  });
+</script>
+
 
     <!--=============================================================
 	
